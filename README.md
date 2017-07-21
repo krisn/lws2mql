@@ -24,7 +24,7 @@ Copy the files under `MQL5\Include` and `MQL5\Libraries` folders to the relevant
 ## Example
 
 In your .mq5 source file, include the `Websocket.mqh` file and make connection, send/receive data as the example below.
-```
+```c
 #include "Websocket.mqh"
 
 CWebsocket ws;
