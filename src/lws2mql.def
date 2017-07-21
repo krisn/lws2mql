@@ -1,0 +1,4 @@
+; dlltool --output-def lws2mql.def --output-lib lws2mql.a lws2mql.o
+EXPORTS
+	lwsClientConnect@8 @ 1
+	lwsGetVersion@0 @ 2
