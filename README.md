@@ -40,10 +40,8 @@ int OnInit()
 
 void OnDeinit(const int reason)
   {
-
     if(ws.ClientDisconnect()<0) PrintFormat("[%s] Websocket %i disconnect error: %s",__FUNCTION__,ws.GetHandle(),ws.GetError());
     ws.Deinit();
-
   }
 
 int OnCalculate(const int rates_total,
@@ -71,7 +69,6 @@ int Broadcast(int _channel_id, string _message)
          "\"message\":\""+_message+"\""
        "}"
      "}";
-
     return (ws.Send(payload));
   }
 
