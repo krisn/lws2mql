@@ -59,6 +59,23 @@ int OnCalculate(const int rates_total,
     else PrintFormat("Signal %i broadcast FAILED on socket %i, Error: %s",i,ws.GetHandle(),ws.GetError());
   }
 
+bool ConnectWebsocket()
+  {
+    int ret = ws.ClientConnect("127.0.0.1",8080);
+    if (ret<0)
+      {
+        PrintFormat("Websocket %i connection error: %s",ws.GetHandle(),ws.GetError());
+        return false;
+      }
+    else
+      {
+        string msg;
+        msg = "{\"type\":\"init\", \"message\":\"Hola lws2mql\"}";
+        ret = ws.Send(msg);
+        return true;
+      }
+  }
+
 int Broadcast(int _channel_id, string _message)
   {
     payload = ""
