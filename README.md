@@ -57,11 +57,11 @@ int OnCalculate(const int rates_total,
                 const long &volume[],
                 const int &spread[])
   {
-    if (Broadcast(ws)>-1) PrintFormat("Signal %i broadcast OK via socket %i",i,ws.GetHandle());
+    if (Broadcast(1, "Hello lws2mql")>-1) PrintFormat("Signal %i broadcast OK via socket %i",i,ws.GetHandle());
     else PrintFormat("Signal %i broadcast FAILED on socket %i, Error: %s",i,ws.GetHandle(),ws.GetError());
   }
 
-int Broadcast(CWebsocket& _socket, int _channel_id, string _message)
+int Broadcast(int _channel_id, string _message)
   {
     payload = ""
      "{"
@@ -72,7 +72,7 @@ int Broadcast(CWebsocket& _socket, int _channel_id, string _message)
        "}"
      "}";
 
-    return (_socket.Send(payload));
+    return (ws.Send(payload));
   }
 
 ```
