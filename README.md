@@ -14,9 +14,9 @@ Compile with GCC
 
 `C:\> gcc -c -DLWS_EXPORTS lws2mql.c`
 
-Generate the .dll file also linking in `lib\libwebsockets.dll`
+Generate the .dll file also linking to `MQL5\Libraries\libwebsockets.dll`
 
-`C:\> gcc -shared -o lws2mql.dll lws2mql.o -L..\lib\ -lwebsockets`
+`C:\> gcc -shared -o lws2mql.dll lws2mql.o -L..\MQL5\Libraries\ -lwebsockets`
 
 ### Deploy
 Copy the files under `MQL5\Include` and `MQL5\Libraries` folders to the relevant places under your MetaTrader 5 installation folder. Libraries are the pre-built DLLs or you can use the ones you've built yourself. Includes are the MQL header files that will provide easy interfacing with the DLLs.
